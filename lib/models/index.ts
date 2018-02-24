@@ -21,6 +21,9 @@ export const getModels = (): Models => {
     operatorsAliases: false,
   });
 
+  models.sequelize = sequelize;
+  models.Sequelize = Sequelize;
+
   const basename = path.basename(module.filename);
   fs
     .readdirSync(__dirname)
@@ -40,9 +43,6 @@ export const getModels = (): Models => {
       models[modelName].associate(models);
     }
   });
-
-  models.sequelize = sequelize;
-  models.Sequelize = Sequelize;
 
   return models as Models;
 };
