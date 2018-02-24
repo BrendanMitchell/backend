@@ -50,7 +50,7 @@ export default (
       },
       employeeId: {
         allowNull: false,
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         field: 'employee_id',
         defaultValue: 0,
       },
