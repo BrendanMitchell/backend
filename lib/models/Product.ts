@@ -6,14 +6,16 @@ export interface ProductAttributes {
   id?: string;
   lookupCode?: string;
   count?: number;
-  createdOn?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface ProductInstance extends Sequelize.Instance<ProductAttributes> {
   id: string;
   lookupCode: string;
   count: number;
-  createdOn: Date;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export default (
