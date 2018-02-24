@@ -2,14 +2,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as Sequelize from 'sequelize';
 
-import {ProductAttributes, ProductInstance} from './Product';
-
-interface Models {
-  sequelize: Sequelize.Sequelize;
-  Sequelize: Sequelize.SequelizeStatic;
-  product: Sequelize.Model<ProductInstance, ProductAttributes>;
-}
-
 const postgresURI = process.env.POSTGRES_URI;
 const models: any = {};
 
@@ -28,6 +20,9 @@ export const getModels = (): Models => {
     },
     operatorsAliases: false,
   });
+
+  models.sequelize = sequelize;
+  models.Sequelize = Sequelize;
 
   const basename = path.basename(module.filename);
   fs
@@ -48,9 +43,6 @@ export const getModels = (): Models => {
       models[modelName].associate(models);
     }
   });
-
-  models.sequelize = sequelize;
-  models.Sequelize = Sequelize;
 
   return models as Models;
 };

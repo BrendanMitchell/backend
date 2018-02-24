@@ -23,5 +23,5 @@ export const tableMeta = {
 };
 
 export const tables = {
-  product: 'product',
+  products: 'products',
 };

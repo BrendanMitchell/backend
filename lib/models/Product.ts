@@ -20,7 +20,7 @@ export default (
   sequelize: Sequelize.Sequelize,
   DataTypes: Sequelize.DataTypes,
 ) => {
-  const Product = sequelize.define(tables.product, {
+  const Product = sequelize.define(tables.products, {
     ...tableMeta,
     lookupCode: {
       allowNull: false,
